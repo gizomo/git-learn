@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     grid-gap: 2rem;
+    color: #293241;
 }
 
 .card {
@@ -9,13 +10,18 @@
     border-radius: .5rem;
     box-shadow:  0 0 .5rem rgba(22,22,22,0.5);
     text-align: center;
+    transition: all .3s ease-out;
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: .25rem .25rem .75rem rgba(22,22,22,0.5);
+    }
     img {
         width: 100%;
         object-fit: contain;
     }
-    span{
+    span {
         display: block;
         padding: .5rem 0;
-        color: red;
+        color: #EE6C4D;
     }
 }
