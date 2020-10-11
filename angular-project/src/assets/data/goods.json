@@ -1,0 +1,86 @@
+[
+    {
+        "id": "1",
+        "name": "Ноутбук Lenovo",
+        "price": "18000",
+        "img": "images/goods/notebook_lenovo.jpg"
+    },
+    {
+        "id": "2",
+        "name": "Ноутбук Acer",
+        "price": "25000",
+        "img": "images/goods/acer_aspire.jpg"
+    },
+    {
+        "id": "3",
+        "name": "Apple ipad",
+        "price": "35000",
+        "img": "images/goods/ipad.jpg"
+    },
+    {
+        "id": "4",
+        "name": "Samsung Galaxy",
+        "price": "20000",
+        "img": "images/goods/phone_galaxy.jpg"
+    },
+    {
+        "id": "5",
+        "name": "Apple Iphone SE",
+        "price": "30000",
+        "img": "images/goods/apple_iphone_se.jpg"
+    },
+    {
+        "id": "6",
+        "name": "Apple Macbook Air",
+        "price": "60000",
+        "img": "images/goods/apple_macbook_air.jpg"
+    },
+    {
+        "id": "7",
+        "name": "Apple Macbook Pro",
+        "price": "90000",
+        "img": "images/goods/apple_macbook_pro.jpg"
+    },
+    {
+        "id": "8",
+        "name": "Asus Zenfone Laser",
+        "price": "430000",
+        "img": "images/goods/asus_zenfone_laser.jpg"
+    },
+    {
+        "id": "9",
+        "name": "Samsung Galaxy A5",
+        "price": "320000",
+        "img": "images/goods/samsung_galaxy_a5.jpg"
+    },
+    {
+        "id": "10",
+        "name": "Samsung Galaxy A7",
+        "price": "390000",
+        "img": "images/goods/samsung_galaxy_a7.jpg"
+    },
+    {
+        "id": "11",
+        "name": "Lenovo A5000",
+        "price": "25000",
+        "img": "images/goods/lenovo_a5000.jpg"
+    },
+    {
+        "id": "12",
+        "name": "Lenovo G5030",
+        "price": "31000",
+        "img": "images/goods/lenovo_g5030.jpg"
+    },
+    {
+        "id": "13",
+        "name": "Lenovo Idea Pad",
+        "price": "30000",
+        "img": "images/goods/lenovo_idea_pad.jpg"
+    },
+    {
+        "id": "14",
+        "name": "Lenovo P90",
+        "price": "24000",
+        "img": "images/goods/lenovo_p90.jpg"
+    }
+]
