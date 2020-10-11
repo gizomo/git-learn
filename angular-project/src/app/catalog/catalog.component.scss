@@ -3,3 +3,19 @@
     grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     grid-gap: 2rem;
 }
+
+.card {
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow:  0 0 .5rem rgba(22,22,22,0.5);
+    text-align: center;
+    img {
+        width: 100%;
+        object-fit: contain;
+    }
+    span{
+        display: block;
+        padding: .5rem 0;
+        color: red;
+    }
+}

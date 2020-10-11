@@ -1,19 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { CatalogComponent } from './catalog/catalog.component';
-import { CardComponent } from './catalog/card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatalogComponent,
-    CardComponent
+    CatalogComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
