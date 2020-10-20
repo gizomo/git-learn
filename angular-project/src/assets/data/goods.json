@@ -1,86 +1,86 @@
 [
     {
-        "id": "1",
         "name": "Ноутбук Lenovo",
         "price": "18000",
-        "img": "../../assets/images/goods/notebook_lenovo.jpg"
+        "img": "../../assets/images/goods/notebook_lenovo.jpg",
+        "description": "Хороший дешевый ноутбук"
     },
     {
-        "id": "2",
         "name": "Ноутбук Acer",
         "price": "25000",
-        "img": "../../assets/images/goods/acer_aspire.jpg"
+        "img": "../../assets/images/goods/acer_aspire.jpg",
+        "description": "Хороший дешевый ноутбук"
     },
     {
-        "id": "3",
         "name": "Apple ipad",
         "price": "35000",
-        "img": "../../assets/images/goods/ipad.jpg"
+        "img": "../../assets/images/goods/ipad.jpg",
+        "description": "Хороший дешевый планшет"
     },
     {
-        "id": "4",
         "name": "Samsung Galaxy",
         "price": "20000",
-        "img": "../../assets/images/goods/phone_galaxy.jpg"
+        "img": "../../assets/images/goods/phone_galaxy.jpg",
+        "description": "Хороший дешевый телефон"
     },
     {
-        "id": "5",
         "name": "Apple Iphone SE",
         "price": "30000",
-        "img": "../../assets/images/goods/apple_iphone_se.jpg"
+        "img": "../../assets/images/goods/apple_iphone_se.jpg",
+        "description": "Хороший смартфон"
     },
     {
-        "id": "6",
         "name": "Apple Macbook Air",
         "price": "60000",
-        "img": "../../assets/images/goods/apple_macbook_air.jpg"
+        "img": "../../assets/images/goods/apple_macbook_air.jpg",
+        "description": "Отличный ноутбук"
     },
     {
-        "id": "7",
         "name": "Apple Macbook Pro",
         "price": "90000",
-        "img": "../../assets/images/goods/apple_macbook_pro.jpg"
+        "img": "../../assets/images/goods/apple_macbook_pro.jpg",
+        "description": "Ноутбук для профессионалов"
     },
     {
-        "id": "8",
         "name": "Asus Zenfone Laser",
         "price": "430000",
-        "img": "../../assets/images/goods/asus_zenfone_laser.jpg"
+        "img": "../../assets/images/goods/asus_zenfone_laser.jpg",
+        "description": "Производетльный телефон"
     },
     {
-        "id": "9",
         "name": "Samsung Galaxy A5",
         "price": "320000",
-        "img": "../../assets/images/goods/samsung_galaxy_a5.jpg"
+        "img": "../../assets/images/goods/samsung_galaxy_a5.jpg",
+        "description": "Удобный телефон"
     },
     {
-        "id": "10",
         "name": "Samsung Galaxy A7",
         "price": "390000",
-        "img": "../../assets/images/goods/samsung_galaxy_a7.jpg"
+        "img": "../../assets/images/goods/samsung_galaxy_a7.jpg",
+        "description": "Удобный недорогой телефон"
     },
     {
-        "id": "11",
         "name": "Lenovo A5000",
         "price": "25000",
-        "img": "../../assets/images/goods/lenovo_a5000.jpg"
+        "img": "../../assets/images/goods/lenovo_a5000.jpg",
+        "description": "Хороший дешевый телефон"
     },
     {
-        "id": "12",
         "name": "Lenovo G5030",
         "price": "31000",
-        "img": "../../assets/images/goods/lenovo_g5030.jpg"
+        "img": "../../assets/images/goods/lenovo_g5030.jpg",
+        "description": "Хороший стильный ноутбук"
     },
     {
-        "id": "13",
         "name": "Lenovo Idea Pad",
         "price": "30000",
-        "img": "../../assets/images/goods/lenovo_idea_pad.jpg"
+        "img": "../../assets/images/goods/lenovo_idea_pad.jpg",
+        "description": "Неплохой ноутбук"
     },
     {
-        "id": "14",
         "name": "Lenovo P90",
         "price": "24000",
-        "img": "../../assets/images/goods/lenovo_p90.jpg"
+        "img": "../../assets/images/goods/lenovo_p90.jpg",
+        "description": "Телефон с хорошей камерой"
     }
 ]

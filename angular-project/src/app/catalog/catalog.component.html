@@ -1,8 +1,8 @@
 <h2>Каталог товаров</h2>
 <div class='catalog'>
-    <div class='card' *ngFor='let product of products'>
+    <a class='card' *ngFor='let product of products; index as productId' [routerLink]="['/products', productId]">
         <h3>{{ product.name }}</h3>
         <img src='{{ product.img }}'>
         <span>{{ product.price }} &#8381;</span>
-    </div>
+    </a>
 </div>

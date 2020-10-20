@@ -1,0 +1,8 @@
+.product {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 3rem;
+    padding: 1rem;
+    background-color: #e2e2e2;
+    box-shadow: 0 0 10px rgba(22,22,22,0.5);
+}
