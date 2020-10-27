@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
+import { AuthService } from '../auth.service';
 
 @Component({
     selector: 'app-product',
@@ -11,8 +12,10 @@ export class ProductComponent implements OnInit {
 
     product: any = {};
     products: any = [];
+    togglePrice = false;
 
     constructor(
+        private auth: AuthService,
         private route: ActivatedRoute,
         private httpClient: HttpClient
         ) { }
@@ -22,8 +25,15 @@ export class ProductComponent implements OnInit {
             this.products = data;
             this.route.paramMap.subscribe(params => {
                 this.product = this.products[+params.get('productId')];
+                if(this.auth.isAuthenticated()) {
+                    this.togglePrice = true;
+                }
+                else {
+                    this.togglePrice = false;
+                }
             });
         });
     }
+
 
 }

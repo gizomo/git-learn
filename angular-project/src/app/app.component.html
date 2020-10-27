@@ -1,6 +1,14 @@
 <div class='container'>
   <h1>Проект на Ангулар</h1>
 
+  <div *ngIf='logginerror'>Неправильно указаны пользователь или пароль</div>
+  <div class='login' *ngIf='!loggintoggle'>
+    Пользователь: <input type="text" [(ngModel)]="username">
+    Пароль: <input type="password" [(ngModel)]="password">
+  </div>
+  <div class='logout' *ngIf='loggintoggle'>Здравствуйте, {{username}}</div>
+  <button (click)="handleLogin()">{{loginbutton}}</button>
+
   <router-outlet></router-outlet>
   
 </div>

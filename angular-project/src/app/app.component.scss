@@ -7,3 +7,22 @@
 h1 {
     text-align: center;
 }
+
+.login, .logout {
+    display: inline-block;
+    margin: 2rem 0;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+    padding: .25rem .75rem;
+    margin: 0 2rem;
+    color: #fff;
+    background-color: #081C2F;
+    
+    &:hover {
+        background-color: #890C23;
+        box-shadow: 0 0 5px rgba(22,22,22,.5);
+    }
+}
