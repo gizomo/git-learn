@@ -8,16 +8,17 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
 
-  title = 'angular-project';
+  title = 'angular-project'; // Неиспользуемое свойство нужно удалить
   username: string = "";
   password: string = "";
   loginbutton: string = "Войти";
   loggintoggle: boolean = false;
-  logginerror: boolean = false;
+  logginerror: boolean = false; // Придерживайтесь camelCase при именовании переменных
 
   constructor( private auth: AuthService ) { }
- 
+
   handleLogin() {
+    // Здесь очень много логики получается и лучше её вынести в сервис, а здесь оставить только вызов
     if(this.loggintoggle) {
       this.auth.logout();
       this.loginbutton = "Войти";

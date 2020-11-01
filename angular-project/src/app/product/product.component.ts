@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class ProductComponent implements OnInit {
 
-    product: any = {};
+    product: any = {}; // Лучше создать класс/интерфейс
     products: any = [];
     togglePrice = false;
 
@@ -21,6 +21,8 @@ export class ProductComponent implements OnInit {
         ) { }
 
     ngOnInit() {
+        // У вас ведь есть сервис, который занимается получением данных, не нужно здесь дублировать эту логику
+        // Если вы вернёте из сервиса Observable, всю логику можно будет обернуть в .pipe, и даже не делать подписку, а использовать async pipe
         this.httpClient.get('assets/data/goods.json').subscribe(data => {
             this.products = data;
             this.route.paramMap.subscribe(params => {

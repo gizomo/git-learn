@@ -8,13 +8,14 @@ import { HttpClient } from "@angular/common/http";
 })
 export class CatalogComponent implements OnInit {
 
-    products: any = [];
+    products: any = []; // Лучше создать класс/интерфейс
 
     constructor( private httpClient: HttpClient ) {
 
     }
 
     ngOnInit() {
+        // Нужно помнить, что в данном случае на каждый запрос создаётся подписка и никуда не уходит, лучше возвращать из сервисов Observable, а управлять подпиской в компонентах
         this.httpClient.get('assets/data/goods.json').subscribe(data => {
             this.products = data;
         })
