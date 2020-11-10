@@ -4,7 +4,6 @@ import { Product } from "./product";
 import { HttpService } from "../http.service";
 import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-product',
@@ -13,12 +12,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class ProductComponent implements OnInit {
 
-    
-    //product: Observable<Object>;
-    product: Product;
-    products: Product[] = [];
-    //product: any = {}; // Лучше создать класс/интерфейс
-    //products: any = [];
+    product: Observable<Product>;
     togglePrice = false;
 
     constructor(
@@ -29,18 +23,14 @@ export class ProductComponent implements OnInit {
 
     ngOnInit() {
         // У вас ведь есть сервис, который занимается получением данных, не нужно здесь дублировать эту логику
-        // Если вы вернёте из сервиса Observable, всю логику можно будет обернуть в .pipe, и даже не делать подписку, а использовать async pipe
-        this.httpService.getProducts().subscribe(data => {
-            this.products = data;           
-            this.route.paramMap.subscribe(params => {
-                this.product = this.products[+params.get('productId')];
-                if(this.auth.isAuthenticated()) {
-                    this.togglePrice = true;
-                }
-                else {
-                    this.togglePrice = false;
-                }
-            });
-        });
+        // Если вы вернёте из сервиса Observable, всю логику можно будет обернуть в .pipe, и даже не делать подписку, а использовать async pipe      
+        this.product = this.httpService.getProduct(+this.route.snapshot.params.productId);
+
+        if(this.auth.isAuthenticated()) {
+            this.togglePrice = true;
+        }
+        else {
+            this.togglePrice = false;
+        }
     }
 }

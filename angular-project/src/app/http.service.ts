@@ -8,11 +8,13 @@ import { map } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class HttpService{
+
+    private productsUrl: string = 'assets/data/goods.json';
    
     constructor(private http: HttpClient) { }
        
     getProducts() : Observable<Product[]> {
-        return this.http.get('assets/data/goods.json').pipe(map(data => {
+        return this.http.get(this.productsUrl).pipe(map(data => {
             let productsList = data["goods"];
             return productsList.map(function(product:any) {
                 return {
@@ -21,7 +23,22 @@ export class HttpService{
                     img: product.img,
                     price: product.price
                 };
-              });
+            });
         }));
+    }
+
+    getProduct(id: number) : Observable<Product> {
+        return this.getProducts().pipe(
+            map(products => products.find((product, index) => index === id))
+        );
+    }
+
+    private initializeProduct(): Product {
+        return {
+            name: null,
+            description: null,
+            img: null,
+            price: 0
+        }
     }
 }
