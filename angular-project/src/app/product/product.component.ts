@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from "@angular/common/http";
+import { Product } from "./product";
+import { HttpService } from "../http.service";
 import { AuthService } from '../auth.service';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-product',
@@ -10,21 +13,25 @@ import { AuthService } from '../auth.service';
 })
 export class ProductComponent implements OnInit {
 
-    product: any = {}; // Лучше создать класс/интерфейс
-    products: any = [];
+    
+    //product: Observable<Object>;
+    product: Product;
+    products: Product[] = [];
+    //product: any = {}; // Лучше создать класс/интерфейс
+    //products: any = [];
     togglePrice = false;
 
     constructor(
         private auth: AuthService,
         private route: ActivatedRoute,
-        private httpClient: HttpClient
+        private httpService: HttpService
         ) { }
 
     ngOnInit() {
         // У вас ведь есть сервис, который занимается получением данных, не нужно здесь дублировать эту логику
         // Если вы вернёте из сервиса Observable, всю логику можно будет обернуть в .pipe, и даже не делать подписку, а использовать async pipe
-        this.httpClient.get('assets/data/goods.json').subscribe(data => {
-            this.products = data;
+        this.httpService.getProducts().subscribe(data => {
+            this.products = data;           
             this.route.paramMap.subscribe(params => {
                 this.product = this.products[+params.get('productId')];
                 if(this.auth.isAuthenticated()) {
@@ -36,6 +43,4 @@ export class ProductComponent implements OnInit {
             });
         });
     }
-
-
 }
