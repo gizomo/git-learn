@@ -13,7 +13,8 @@ import { Observable } from 'rxjs';
 export class ProductComponent implements OnInit {
 
     product: Observable<Product>;
-    togglePrice = false;
+    togglePrice: Observable<boolean>;
+    //togglePrice = false;
 
     constructor(
         private auth: AuthService,
@@ -26,11 +27,6 @@ export class ProductComponent implements OnInit {
         // Если вы вернёте из сервиса Observable, всю логику можно будет обернуть в .pipe, и даже не делать подписку, а использовать async pipe      
         this.product = this.httpService.getProduct(+this.route.snapshot.params.productId);
 
-        if(this.auth.isAuthenticated()) {
-            this.togglePrice = true;
-        }
-        else {
-            this.togglePrice = false;
-        }
+        this.togglePrice = this.auth.isAuthenticated();
     }
 }

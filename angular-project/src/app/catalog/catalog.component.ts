@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { HttpService } from "../http.service";
 import { Product } from "../product/product";
 
@@ -9,13 +10,13 @@ import { Product } from "../product/product";
 })
 export class CatalogComponent implements OnInit {
 
-    products: Product[] = [];
+    products: Observable<Product[]>;
     // products: any = []; // Лучше создать класс/интерфейс
 
     constructor( private httpService: HttpService ) { }
 
     ngOnInit() {
         // Нужно помнить, что в данном случае на каждый запрос создаётся подписка и никуда не уходит, лучше возвращать из сервисов Observable, а управлять подпиской в компонентах
-        this.httpService.getProducts().subscribe(data => this.products = data)
+        this.products = this.httpService.getProducts();
     }
 }

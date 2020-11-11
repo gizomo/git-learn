@@ -1,6 +1,6 @@
 <h2>Каталог товаров</h2>
 <div class='catalog'>
-    <a class='card' *ngFor='let product of products; index as productId' [routerLink]="['/products', productId]">
+    <a class='card' *ngFor='let product of products | async; index as productId' [routerLink]="['/products', productId]">
         <h3>{{ product.name }}</h3>
         <img src='{{ product.img }}'>
     </a>

@@ -8,32 +8,17 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
 
-  title = 'angular-project'; // Неиспользуемое свойство нужно удалить
-  username: string = "";
+  userName: string = "";
   password: string = "";
-  loginbutton: string = "Войти";
-  loggintoggle: boolean = false;
-  logginerror: boolean = false; // Придерживайтесь camelCase при именовании переменных
+  loginButton: string = "Войти";
+  loginError: boolean = false; // Придерживайтесь camelCase при именовании переменных
+  loggedIn: boolean;
 
   constructor( private auth: AuthService ) { }
 
-  handleLogin() {
-    // Здесь очень много логики получается и лучше её вынести в сервис, а здесь оставить только вызов
-    if(this.loggintoggle) {
-      this.auth.logout();
-      this.loginbutton = "Войти";
-      this.loggintoggle = this.auth.isAuthenticated();
-      this.username = '';
-      this.password = '';
-    }
-    else {
-      if(this.username === "User" && this.password === "Any") {
-        this.auth.login();
-        this.loginbutton = "Выйти";
-        this.loggintoggle = this.auth.isAuthenticated();
-      } else {
-        this.logginerror = true;
-      }
-    }
+  toggleLogin() {
+    this.loggedIn = this.auth.handleLogin(this.userName, this.password);
+    this.loginError = this.auth.loginError;
+    this.loginButton = this.loggedIn ? "Выйти" : "Войти";
   }
 }
