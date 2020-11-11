@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { ProductComponent } from './product/product.component';
-import { AuthService } from './auth.service';
 
 const routes: Routes = [
   { path: '', component: CatalogComponent },
