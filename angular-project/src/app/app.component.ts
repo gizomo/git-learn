@@ -14,7 +14,7 @@ export class AppComponent {
   loginError: boolean = false; // Придерживайтесь camelCase при именовании переменных
   loggedIn: boolean;
 
-  constructor( private auth: AuthService ) { }
+  constructor( private auth: AuthService ) {}
 
   toggleLogin() {
     this.loggedIn = this.auth.handleLogin(this.userName, this.password);

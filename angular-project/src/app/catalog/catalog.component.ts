@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpService } from "../http.service";
+import { AuthService } from "../auth.service"
 import { Product } from "../product/product";
 
 @Component({
@@ -11,12 +12,17 @@ import { Product } from "../product/product";
 export class CatalogComponent implements OnInit {
 
     products: Observable<Product[]>;
-    // products: any = []; // Лучше создать класс/интерфейс
 
-    constructor( private httpService: HttpService ) { }
+    constructor(
+        private httpService: HttpService,
+        private auth: AuthService
+        ) { }
 
     ngOnInit() {
-        // Нужно помнить, что в данном случае на каждый запрос создаётся подписка и никуда не уходит, лучше возвращать из сервисов Observable, а управлять подпиской в компонентах
         this.products = this.httpService.getProducts();
+    }
+
+    toggleAddPrice(): Observable<boolean> {
+        return this.auth.isAuthenticated();
     }
 }

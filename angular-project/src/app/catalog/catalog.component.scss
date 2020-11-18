@@ -26,3 +26,19 @@
         color: #EE6C4D;
     }
 }
+
+.add {
+    img {
+        display: block;
+        width: 50%;
+        margin: 3rem auto;
+        filter: grayscale(100%);
+        transition: filter .3s ease-out;
+    }
+    span {
+        color: #2e2e2e;
+    }
+    &:hover img {
+        filter: grayscale(0%);
+    }
+}

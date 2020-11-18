@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from './product/product';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
    
 @Injectable({
@@ -10,9 +10,38 @@ import { map } from 'rxjs/operators';
 export class HttpService{
 
     private productsUrl: string = 'assets/data/goods.json';
-   
-    constructor(private http: HttpClient) { }
-       
+
+    private _products: BehaviorSubject<Product[]> = new BehaviorSubject([]);
+
+    public readonly products: Observable<Product[]> = this._products.asObservable();
+
+
+    constructor(private http: HttpClient) {
+        this.loadProductList();
+    }
+
+    loadProductList() {
+        this.http.get(this.productsUrl).subscribe(
+            data => {
+                let productsList = data["goods"];
+                let products = productsList.map(function(product:any) {
+                    return {
+                        name: product.name,
+                        description: product.description,
+                        img: product.img,
+                        price: product.price
+                    };
+                });
+
+                this._products.next(products);
+            }
+        )
+    }
+
+    getProducts() {
+        return this._products;
+    }
+    /*   
     getProducts() : Observable<Product[]> {
         return this.http.get(this.productsUrl).pipe(map(data => {
             let productsList = data["goods"];
@@ -26,19 +55,15 @@ export class HttpService{
             });
         }));
     }
-
+    */
     getProduct(id: number) : Observable<Product> {
         return this.getProducts().pipe(
             map(products => products.find((product, index) => index === id))
         );
     }
+    
 
-    private initializeProduct(): Product {
-        return {
-            name: null,
-            description: null,
-            img: null,
-            price: 0
-        }
+    addProduct(newProduct:Product) {
+        this._products.next([...this._products.value, newProduct]);
     }
 }

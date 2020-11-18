@@ -1,14 +1,16 @@
 <div class='container'>
-  <h1>Проект на Ангулар</h1>
+  <router-outlet>
 
-  <div *ngIf='loginError'>Неправильно указаны пользователь или пароль</div>
-  <div class='login' *ngIf='!loggedIn'>
-    Пользователь: <input type="text" [(ngModel)]="userName">
-    Пароль: <input type="password" [(ngModel)]="password">
-  </div>
-  <div class='logout' *ngIf='loggedIn'>Здравствуйте, {{userName}}</div>
-  <button (click)="toggleLogin()">{{loginButton}}</button>
+    <h1><a routerLink=''>Каталог товаров</a></h1>
 
-  <router-outlet></router-outlet>
+    <div class='error' *ngIf='loginError'>Неправильно указаны пользователь или пароль</div>
+    <div class='login' *ngIf='!loggedIn'>
+      Пользователь: <input type="text" [(ngModel)]="userName">
+      Пароль: <input type="password" [(ngModel)]="password">
+    </div>
+    <div class='logout' *ngIf='loggedIn'>Здравствуйте, {{userName}}</div>
+    <button (click)="toggleLogin()">{{loginButton}}</button>
+
+  </router-outlet>
   
 </div>

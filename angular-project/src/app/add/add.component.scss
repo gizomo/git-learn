@@ -1,0 +1,24 @@
+.product-add {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+}
+
+.add-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.invalid {
+    grid-column: 1/3;
+    color: red;
+}
+
+.selected-img {
+    position: relative;
+    img {
+        position: absolute;
+        width: 50%
+    }
+}

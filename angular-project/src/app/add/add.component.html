@@ -1,0 +1,22 @@
+<h2>Новый товар</h2>
+<div class='product-add'>
+    <form class='add-form' [formGroup]="addProductForm" (ngSubmit)="onSubmit(addProductForm.value)" novalidate>
+        <label>Название</label>
+        <input type="text" formControlName="name">
+        <div class='invalid' *ngIf="_name.invalid && (_name.touched || _name.dirty)">
+            <span *ngIf="_name.errors?.required">Обязательно для заполнения</span>
+        </div>
+        <label>Описание</label>
+        <input type="text" formControlName="description">
+        <label>Изображение</label>
+        <input type="file" formControlName="img" (change)="onSelectedFile($event)">
+        <label>Цена</label>
+        <input type="text" formControlName="price">
+        <div class='invalid' *ngIf="_price.invalid && (_price.touched || _price.dirty)">
+            <span *ngIf="_price.errors?.required">Обязательно для заполнения</span>
+            <span *ngIf="_price.errors?.pattern">Разрешаются только цифры</span>
+        </div>
+        <div class='submit'><button type="submit" [disabled]="!addProductForm.valid">Добавить</button></div>
+    </form>
+    <div class='selected-img'><img src='{{ localUrl }}' *ngIf="localUrl"></div>
+</div>

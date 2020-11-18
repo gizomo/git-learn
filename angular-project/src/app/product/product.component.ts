@@ -13,8 +13,6 @@ import { Observable } from 'rxjs';
 export class ProductComponent implements OnInit {
 
     product: Observable<Product>;
-    togglePrice: Observable<boolean>;
-    //togglePrice = false;
 
     constructor(
         private auth: AuthService,
@@ -26,7 +24,9 @@ export class ProductComponent implements OnInit {
         // У вас ведь есть сервис, который занимается получением данных, не нужно здесь дублировать эту логику
         // Если вы вернёте из сервиса Observable, всю логику можно будет обернуть в .pipe, и даже не делать подписку, а использовать async pipe      
         this.product = this.httpService.getProduct(+this.route.snapshot.params.productId);
+    }
 
-        this.togglePrice = this.auth.isAuthenticated();
+    togglePrice(): Observable<boolean> {
+        return this.auth.isAuthenticated();
     }
 }
