@@ -8,7 +8,7 @@ export class AuthService {
   private userName: string = "User";
   private password: string = "Any";
   private loggedIn = false;
-  loginError: boolean = false; // Придерживайтесь camelCase при именовании переменных
+  loginError: boolean = false;
 
   isAuthenticated() : Observable<boolean> {
     return of(this.loggedIn);

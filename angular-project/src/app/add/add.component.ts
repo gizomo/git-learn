@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from "../http.service";
 
 @Component({
@@ -9,7 +9,7 @@ import { HttpService } from "../http.service";
 })
 export class AddComponent {
 
-  public addProductForm;
+  public addProductForm: FormGroup;
 
   public localUrl: string;
 
