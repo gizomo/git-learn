@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { HttpService } from "../http.service";
+//import { HttpService } from "../http.service";
+import { FetchProducts } from '../store/actions';
+import { getProducts } from '../store/selectors';
 import { AuthService } from "../auth.service"
-import { Product } from "../product/product";
+import { AppState } from '../store/state/app';
+//import { Product } from "../product/product";
 
 @Component({
     selector: 'app-catalog',
@@ -11,18 +15,23 @@ import { Product } from "../product/product";
 })
 export class CatalogComponent implements OnInit {
 
-    products: Observable<Product[]>;
+//    products: Observable<Product[]>;
+    public products$ = this.store.pipe(
+        select(getProducts)
+    );
 
     constructor(
-        private httpService: HttpService,
-        private auth: AuthService
+//        private httpService: HttpService,
+        private auth: AuthService,
+        private store: Store<AppState>
         ) { }
 
     ngOnInit() {
-        this.products = this.httpService.getProducts();
+//        this.products = this.httpService.getProducts();
+        this.store.dispatch(new FetchProducts());
     }
 
-    toggleAddPrice(): Observable<boolean> {
+    toggleAddProduct(): Observable<boolean> {
         return this.auth.isAuthenticated();
     }
 }

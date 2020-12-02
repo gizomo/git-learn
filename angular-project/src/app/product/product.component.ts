@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from "./product";
-import { HttpService } from "../http.service";
+//import { Product } from "./product";
+//import { HttpService } from "../http.service";
 import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { AppState } from '../store/state/app'
+import { FetchProduct } from '../store/actions';
+import { getSelectedProduct } from '../store/selectors';
 
 @Component({
     selector: 'app-product',
@@ -12,18 +16,18 @@ import { Observable } from 'rxjs';
 })
 export class ProductComponent implements OnInit {
 
-    product: Observable<Product>;
+    public user$ = this.store.pipe(select(getSelectedProduct));
 
     constructor(
         private auth: AuthService,
         private route: ActivatedRoute,
-        private httpService: HttpService
+//        private httpService: HttpService
+        private store: Store<AppState>
         ) { }
 
     ngOnInit() {
-        // У вас ведь есть сервис, который занимается получением данных, не нужно здесь дублировать эту логику
-        // Если вы вернёте из сервиса Observable, всю логику можно будет обернуть в .pipe, и даже не делать подписку, а использовать async pipe      
-        this.product = this.httpService.getProduct(+this.route.snapshot.params.productId);
+//        this.product = this.httpService.getProduct(+this.route.snapshot.params.productId);
+        this.store.dispatch(new FetchProduct(this.route.snapshot.params.productId));
     }
 
     togglePrice(): Observable<boolean> {
