@@ -21,6 +21,13 @@ export const CatalogReducer = (
                 selectedProduct: action.payload
             };
         }
+
+        case ProductActionTypes.AddProduct: {
+            return {
+                ...state,
+                products: [...state.products, action.payload]
+            }
+        }
         
         default: {
             return state;

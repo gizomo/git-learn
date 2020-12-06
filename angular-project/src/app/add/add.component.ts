@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpService } from "../http.service";
+//import { HttpService } from "../http.service";
+import { AddProduct } from '../store/actions';
+import { AppState } from '../store/state/app';
+import { Product } from '../product/product';
 
 @Component({
   selector: 'app-add',
@@ -13,7 +17,7 @@ export class AddComponent {
 
   public localUrl: string;
 
-  constructor(private formBuilder: FormBuilder, private httpService: HttpService) { 
+  constructor(private formBuilder: FormBuilder, private store: Store<AppState> ) { 
     this._createForm();
   }
 
@@ -34,8 +38,9 @@ export class AddComponent {
     return this.addProductForm.get('price');
   }
 
-  onSubmit(productData) {
-    this.httpService.addProduct(productData);
+  onSubmit(productData: Product) {
+//    this.httpService.addProduct(productData);
+    this.store.dispatch(new AddProduct(productData));
     this.addProductForm.reset();
     this.localUrl = null;
   }

@@ -1,10 +1,9 @@
 <h2>Каталог товаров</h2>
 <div class='catalog' *ngIf="products$ | async as products">
-   <a class='card' *ngFor='let product of products; index as productId' [routerLink]="['/products', productId]">
+    <a class='card' *ngFor='let product of products; index as productId' [routerLink]="['/products', productId]">
         <h3>{{ product.name }}</h3>
         <img src='{{ product.img }}'>
     </a>
-    <app-product *ngFor='let product of products' [product]='product'></app-product>
     <a class='card add' *ngIf="toggleAddProduct() | async" routerLink='/products/add'>
         <img src='../../assets/images/add.svg'>
         <span>Добавить товар</span>
