@@ -16,7 +16,7 @@ import { getSelectedProduct } from '../store/selectors';
 })
 export class ProductComponent implements OnInit {
 
-    public user$ = this.store.pipe(select(getSelectedProduct));
+    public product$ = this.store.pipe(select(getSelectedProduct));
 
     constructor(
         private auth: AuthService,
