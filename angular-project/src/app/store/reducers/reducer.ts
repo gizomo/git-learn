@@ -14,11 +14,11 @@ export const CatalogReducer = (
                 products: action.payload
             };
         }
-        
-        case ProductActionTypes.FetchProductSuccess: {
+
+        case ProductActionTypes.FetchProduct: {
             return {
                 ...state,
-                selectedProduct: action.payload
+                selectedProduct: state.products.find((product, index) => index === +action.payload)
             };
         }
 

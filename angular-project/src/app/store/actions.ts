@@ -6,7 +6,6 @@ import { Product } from '../product/product';
         FetchProducts = '[Products] Get items from server',
         FetchProductsSuccess = '[Products] Get items success',
         FetchProduct = '[Product] Get item from server',
-        FetchProductSuccess = '[Product] Get item success',
     }
 
     export class AddProduct implements Action {
@@ -21,12 +20,6 @@ import { Product } from '../product/product';
       constructor(public payload: number) {}
     }
 
-    export class FetchProductSuccess implements Action {
-      readonly type = ProductActionTypes.FetchProductSuccess;
-
-      constructor(public payload: Product) {}
-    }
-
     export class FetchProducts implements Action {
       readonly type = ProductActionTypes.FetchProducts;
     }
@@ -37,4 +30,4 @@ import { Product } from '../product/product';
       constructor(public payload: Product[]) {}
     }
     
-    export type ProductsActions = FetchProducts | FetchProductsSuccess | FetchProduct | FetchProductSuccess | AddProduct;
+    export type ProductsActions = FetchProducts | FetchProductsSuccess | FetchProduct | AddProduct;

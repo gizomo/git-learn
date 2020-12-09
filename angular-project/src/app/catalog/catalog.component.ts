@@ -16,9 +16,7 @@ import { AppState } from '../store/state/app';
 export class CatalogComponent implements OnInit {
 
 //    products: Observable<Product[]>;
-    public products$ = this.store.pipe(
-        select(getProducts)
-    );
+    public products$ = this.store.pipe(select(getProducts));
 
     constructor(
 //        private httpService: HttpService,
